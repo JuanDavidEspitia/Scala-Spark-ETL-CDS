@@ -4,7 +4,7 @@
 		module="scala-spark-etl-cds_2.11"
 		revision="0.1"
 		status="integration"
-		publication="20210106183929"
+		publication="20210107085454"
 	>
 		<description>
 		Scala-Spark-ETL-CDS
@@ -33,5 +33,9 @@
 		<dependency org="org.scala-lang" name="scala-compiler" rev="2.11.12" conf="scala-tool->default,optional(default)"/>
 		<dependency org="org.scala-lang" name="scala-library" rev="2.11.12" conf="scala-tool->default,optional(default);compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-core_2.11" rev="2.3.1" conf="provided->default(compile)"/>
+		<dependency org="org.apache.spark" name="spark-sql_2.11" rev="2.3.1" conf="provided->default(compile)"/>
+		<dependency org="org.apache.spark" name="spark-streaming_2.11" rev="2.3.1" conf="provided->default(compile)"/>
+		<dependency org="com.databricks" name="spark-csv_2.11" rev="1.5.0" conf="provided->default(compile)"/>
+		<dependency org="com.crealytics" name="spark-excel_2.11" rev="0.8.3" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

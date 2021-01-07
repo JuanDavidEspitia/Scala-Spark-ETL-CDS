@@ -7,13 +7,110 @@
 		revision="0.1"
 		conf="runtime"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20210106183929"/>
+		date="20210107085454"/>
 	<dependencies>
+		<module organisation="com.crealytics" name="spark-excel_2.11">
+			<revision name="0.8.3" status="release" pubdate="20170323113010" resolver="public" artresolver="public" homepage="https://github.com/crealytics/spark-excel" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="1">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="successful" details="" size="2753" time="576" location="/home/adseglocdom/.ivy2/cache/com.crealytics/spark-excel_2.11/ivy-0.8.3.xml" searched="true" original-local-location="/home/adseglocdom/.ivy2/cache/com.crealytics/spark-excel_2.11/ivy-0.8.3.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/crealytics/spark-excel_2.11/0.8.3/spark-excel_2.11-0.8.3.pom"/>
+				<caller organisation="default" name="scala-spark-etl-cds_2.11" conf="compile, runtime" rev="0.8.3" rev-constraint-default="0.8.3" rev-constraint-dynamic="0.8.3" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="spark-excel_2.11" type="jar" ext="jar" status="successful" details="" size="18872868" time="21400" location="/home/adseglocdom/.ivy2/cache/com.crealytics/spark-excel_2.11/jars/spark-excel_2.11-0.8.3.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/crealytics/spark-excel_2.11/0.8.3/spark-excel_2.11-0.8.3.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.poi" name="poi-ooxml">
+			<revision name="3.14" status="release" pubdate="20160306065950" resolver="public" artresolver="public" homepage="http://poi.apache.org/" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="2">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="successful" details="" size="2719" time="361" location="/home/adseglocdom/.ivy2/cache/org.apache.poi/poi-ooxml/ivy-3.14.xml" searched="true" original-local-location="/home/adseglocdom/.ivy2/cache/org.apache.poi/poi-ooxml/ivy-3.14.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/poi/poi-ooxml/3.14/poi-ooxml-3.14.pom"/>
+				<caller organisation="com.crealytics" name="spark-excel_2.11" conf="default, compile, runtime, master" rev="3.14" rev-constraint-default="3.14" rev-constraint-dynamic="3.14" callerrev="0.8.3"/>
+				<artifacts>
+					<artifact name="poi-ooxml" type="jar" ext="jar" status="successful" details="" size="1286511" time="6495" location="/home/adseglocdom/.ivy2/cache/org.apache.poi/poi-ooxml/jars/poi-ooxml-3.14.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/poi/poi-ooxml/3.14/poi-ooxml-3.14.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.github.virtuald" name="curvesapi">
+			<revision name="1.03" status="release" pubdate="20151019132217" resolver="public" artresolver="public" homepage="https://github.com/virtuald/curvesapi" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="8">
+				<license name="BSD License" url="http://opensource.org/licenses/BSD-3-Clause"/>
+				<metadata-artifact status="successful" details="" size="3853" time="345" location="/home/adseglocdom/.ivy2/cache/com.github.virtuald/curvesapi/ivy-1.03.xml" searched="true" original-local-location="/home/adseglocdom/.ivy2/cache/com.github.virtuald/curvesapi/ivy-1.03.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/github/virtuald/curvesapi/1.03/curvesapi-1.03.pom"/>
+				<caller organisation="org.apache.poi" name="poi-ooxml" conf="compile, runtime" rev="1.03" rev-constraint-default="1.03" rev-constraint-dynamic="1.03" callerrev="3.14"/>
+				<artifacts>
+					<artifact name="curvesapi" type="jar" ext="jar" status="successful" details="" size="92241" time="1889" location="/home/adseglocdom/.ivy2/cache/com.github.virtuald/curvesapi/jars/curvesapi-1.03.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/github/virtuald/curvesapi/1.03/curvesapi-1.03.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.poi" name="poi-ooxml-schemas">
+			<revision name="3.14" status="release" pubdate="20160306070539" resolver="public" artresolver="public" homepage="http://poi.apache.org/" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="5">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="successful" details="" size="2433" time="403" location="/home/adseglocdom/.ivy2/cache/org.apache.poi/poi-ooxml-schemas/ivy-3.14.xml" searched="true" original-local-location="/home/adseglocdom/.ivy2/cache/org.apache.poi/poi-ooxml-schemas/ivy-3.14.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/poi/poi-ooxml-schemas/3.14/poi-ooxml-schemas-3.14.pom"/>
+				<caller organisation="org.apache.poi" name="poi-ooxml" conf="compile, runtime" rev="3.14" rev-constraint-default="3.14" rev-constraint-dynamic="3.14" callerrev="3.14"/>
+				<artifacts>
+					<artifact name="poi-ooxml-schemas" type="jar" ext="jar" status="successful" details="" size="5919795" time="13493" location="/home/adseglocdom/.ivy2/cache/org.apache.poi/poi-ooxml-schemas/jars/poi-ooxml-schemas-3.14.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/poi/poi-ooxml-schemas/3.14/poi-ooxml-schemas-3.14.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.xmlbeans" name="xmlbeans">
+			<revision name="2.6.0" status="release" pubdate="20130605124946" resolver="public" artresolver="public" homepage="http://xmlbeans.apache.org" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="6">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="successful" details="" size="3403" time="312" location="/home/adseglocdom/.ivy2/cache/org.apache.xmlbeans/xmlbeans/ivy-2.6.0.xml" searched="true" original-local-location="/home/adseglocdom/.ivy2/cache/org.apache.xmlbeans/xmlbeans/ivy-2.6.0.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.pom"/>
+				<caller organisation="org.apache.poi" name="poi-ooxml-schemas" conf="compile, runtime" rev="2.6.0" rev-constraint-default="2.6.0" rev-constraint-dynamic="2.6.0" callerrev="3.14"/>
+				<artifacts>
+					<artifact name="xmlbeans" type="jar" ext="jar" status="successful" details="" size="2730866" time="9002" location="/home/adseglocdom/.ivy2/cache/org.apache.xmlbeans/xmlbeans/jars/xmlbeans-2.6.0.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="stax" name="stax-api">
+			<revision name="1.0.1" status="release" pubdate="20060831123914" resolver="public" artresolver="public" homepage="http://stax.codehaus.org/" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="7">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="successful" details="" size="1526" time="313" location="/home/adseglocdom/.ivy2/cache/stax/stax-api/ivy-1.0.1.xml" searched="true" original-local-location="/home/adseglocdom/.ivy2/cache/stax/stax-api/ivy-1.0.1.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/stax/stax-api/1.0.1/stax-api-1.0.1.pom"/>
+				<caller organisation="org.apache.xmlbeans" name="xmlbeans" conf="compile, runtime" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="2.6.0"/>
+				<artifacts>
+					<artifact name="stax-api" type="jar" ext="jar" status="successful" details="" size="26514" time="1102" location="/home/adseglocdom/.ivy2/cache/stax/stax-api/jars/stax-api-1.0.1.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/stax/stax-api/1.0.1/stax-api-1.0.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.poi" name="poi">
+			<revision name="3.14" status="release" pubdate="20160306065326" resolver="public" artresolver="public" homepage="http://poi.apache.org/" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="3">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="successful" details="" size="3160" time="407" location="/home/adseglocdom/.ivy2/cache/org.apache.poi/poi/ivy-3.14.xml" searched="true" original-local-location="/home/adseglocdom/.ivy2/cache/org.apache.poi/poi/ivy-3.14.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/poi/poi/3.14/poi-3.14.pom"/>
+				<caller organisation="org.apache.poi" name="poi-ooxml" conf="compile, runtime" rev="3.14" rev-constraint-default="3.14" rev-constraint-dynamic="3.14" callerrev="3.14"/>
+				<artifacts>
+					<artifact name="poi" type="jar" ext="jar" status="successful" details="" size="2528204" time="9687" location="/home/adseglocdom/.ivy2/cache/org.apache.poi/poi/jars/poi-3.14.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/poi/poi/3.14/poi-3.14.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="commons-codec" name="commons-codec">
+			<revision name="1.10" status="release" pubdate="20141106091535" resolver="public" artresolver="public" homepage="http://commons.apache.org/proper/commons-codec/" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="4">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="successful" details="" size="11609" time="366" location="/home/adseglocdom/.ivy2/cache/commons-codec/commons-codec/ivy-1.10.xml" searched="true" original-local-location="/home/adseglocdom/.ivy2/cache/commons-codec/commons-codec/ivy-1.10.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/commons-codec/commons-codec/1.10/commons-codec-1.10.pom"/>
+				<caller organisation="org.apache.poi" name="poi" conf="compile, runtime" rev="1.10" rev-constraint-default="1.10" rev-constraint-dynamic="1.10" callerrev="3.14"/>
+				<artifacts>
+					<artifact name="commons-codec" type="jar" ext="jar" status="successful" details="" size="284184" time="2821" location="/home/adseglocdom/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.10.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/commons-codec/commons-codec/1.10/commons-codec-1.10.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
 		<module organisation="org.scala-lang" name="scala-library">
-			<revision name="2.11.12" status="release" pubdate="20171102203730" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.11.12/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="0">
+			<revision name="2.11.12" status="release" pubdate="20171102203730" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.11.12/" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="0">
 				<license name="BSD 3-Clause" url="http://www.scala-lang.org/license.html"/>
 				<metadata-artifact status="no" details="" size="2656" time="0" location="/home/adseglocdom/.ivy2/cache/org.scala-lang/scala-library/ivy-2.11.12.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.12/scala-library-2.11.12.pom"/>
 				<caller organisation="default" name="scala-spark-etl-cds_2.11" conf="compile, runtime" rev="2.11.12" rev-constraint-default="2.11.12" rev-constraint-dynamic="2.11.12" callerrev="0.1"/>
+				<caller organisation="com.crealytics" name="spark-excel_2.11" conf="default, compile, runtime, master" rev="2.11.12" rev-constraint-default="2.11.12" rev-constraint-dynamic="2.11.12" callerrev="0.8.3"/>
 				<artifacts>
 					<artifact name="scala-library" type="jar" ext="jar" status="no" details="" size="5749423" time="0" location="/home/adseglocdom/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.12.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.12/scala-library-2.11.12.jar"/>
