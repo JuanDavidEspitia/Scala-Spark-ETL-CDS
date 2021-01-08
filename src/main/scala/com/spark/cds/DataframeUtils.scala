@@ -7,8 +7,6 @@ import javax.crypto.spec.IvParameterSpec
 import org.apache.commons.codec.binary.Base64.decodeBase64
 import org.apache.commons.codec.binary.Base64.encodeBase64
 import com.spark.cds.Utils._
-
-//import org.apache.commons.codec.binary.Base64
 import org.apache.spark.sql.functions.{col, lit, _}
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.{DataFrame, SparkSession}
