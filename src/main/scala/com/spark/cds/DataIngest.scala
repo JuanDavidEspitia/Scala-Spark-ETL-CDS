@@ -3,7 +3,9 @@ package com.spark.cds
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.types
-import org.apache.spark.sql.functions
+import org.apache.spark.sql.functions._
+
+
 import scala.sys.process._
 
 object DataIngest
@@ -27,6 +29,10 @@ object DataIngest
     val path_producto = "input/ods_productos_2020.csv"
     val path_homologacion_doc = "input/homologacion_documentos.csv"
 
+    println("******************************************************* \n" +
+            "           EXTRACCION DE LOS ARCHIVOS PLANOS            \n" +
+            "******************************************************* \n" )
+
     var dfClientes = spark.read.format("com.databricks.spark.csv")
       .option("delimiter", delimiter)
       .option("header", true)
@@ -45,8 +51,8 @@ object DataIngest
       .option("mergeSchema", "true")
       .csv("input/ods_clientes*.csv")
     dfClientes.show()
-
      */
+
     var dfProductos = spark.read.format("com.databricks.spark.csv")
       .option("delimiter", ";")
       .option("header", true)
@@ -65,12 +71,71 @@ object DataIngest
       .load(path_homologacion_doc)
     dfHomologacionDoc.show(5)
 
+    println("******************************************************* \n" +
+            "        LIMPIEZA DE ENCABEZADOS EN LOS DATAFRAMES       \n" +
+            "******************************************************* \n" )
+
+    /*
+    Creamos un ciclo para limpiar los espacios en los encabezados
+    */
+    for (field <- dfClientes.columns)
+    {
+      dfClientes = dfClientes.withColumnRenamed(field,field.replaceAll(" ", "_"))
+    }
+    dfClientes.show(2)
+
+    /*
+    Del dataframe de producto, creamos una nueva columna, para la descripcion del estado
+     */
+    dfProductos = dfProductos.withColumn("DESC_ESTADO", when(col("ESTADO") === "1","Activo")
+      .when(col("ESTADO") === "0","Inactivo")
+      .otherwise("Unknown"))
+    dfProductos.show(5)
+
+    /*
+    * Para el dataframe de homologacion documento, renombramos la columna VALOR
+    */
+    dfHomologacionDoc =dfHomologacionDoc.withColumnRenamed("VALOR", "TIPO_IDENTIFICACION")
+      .withColumnRenamed("TIPO_ID", "ID_TIPO")
+    dfHomologacionDoc.show(1)
+
+    /*
+    * Ahora agregamos una nueva columna a dfHomologacion con la descripcion
+    * de cada ID_TIPO
+    */
+    dfHomologacionDoc = dfHomologacionDoc.withColumn("DESCRIPCION",
+         when(col("ID_TIPO")==="1", "Cedula de Ciudadania")
+        .when(col("ID_TIPO")==="2", "Cedula de Extrangeria")
+        .when(col("ID_TIPO")==="3", "Pasaporte")
+        .when(col("ID_TIPO")==="4", "Tarjeta de Identidad"))
+    dfHomologacionDoc.show()
+
+    /*
+    Cruzamos el dfClientes con dfHomologacion para cambiar los valores de idTipo
+    Por tipo de identificacion
+    */
+
+    var dfClientesHomologados = dfClientes.as("a").join(dfHomologacionDoc.as("b"),
+      col("a.TIPO_ID") === col("b.ID_TIPO"),"inner")
+      .select(col("a.ID_CLIENTE"),
+        col("b.TIPO_IDENTIFICACION"),
+        col("a.NOMBRE_CLIENTE").as("NOMBRE"),
+        col("a.CORREO_ELECTRONICO").as("EMAIL"),
+        col("a.CIUDAD"),
+        col("a.NUMERO_CUENTA"),
+        col("a.FECHA_ACTIVACION"),
+        col("ID_PROUCTO"))
+    dfClientesHomologados.show()
+
+
+
 
 
 
 
     val endTimeMillis = System.currentTimeMillis()
-    println(endTimeMillis)
+    val durationSeconds = (endTimeMillis - startTimeMillis)/1000
+    println("El tiempo empleado en segundos para el procesamiento es: " + durationSeconds + "sg")
 
   }
 
