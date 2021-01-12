@@ -140,6 +140,24 @@ object DataIngest
     println("Join de Clientes Homolagados con productos")
     dfClienteProducto.show(false)
 
+    /**
+     * Añadimos una nueva columna llamada esquema, que dependiendo del estado
+     * le añade el valor "Maestra" o "Transaccion", para identificar
+     * el esquema origen y en que carpeta de particion destino debe quedar
+     * */
+    dfClienteProducto = dfClienteProducto.withColumn("SCHEMA",
+      expr("case when ESTADO = '0' then 'Maestro' " +
+        "when ESTADO = '1' then 'Transaccion' " +
+        "else 'N/A' end"))
+    dfClienteProducto.show(false)
+
+    /**
+     * Procedemos a concatenar las columnas TIPO_IDENTIFICACION+ID_CLIENTE, para
+     * ofuscarlo con el algoritmo sha256
+     * */
+
+
+
 
 
 
