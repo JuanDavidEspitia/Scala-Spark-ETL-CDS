@@ -153,8 +153,20 @@ object DataIngest
 
     /**
      * Procedemos a concatenar las columnas TIPO_IDENTIFICACION+ID_CLIENTE, para
-     * ofuscarlo con el algoritmo sha256
+     * ofuscarlo con el algoritmo sha256.
+     * Adicionalmente eliminamos las columnas innecesarias
      * */
+
+    dfClienteProducto = dfClienteProducto.withColumn("SHA-256",
+      sha2(concat(col("TIPO_IDENTIFICACION"), col("ID_CLIENTE")),256))
+      .drop("ID_CLIENTE")
+      .drop("TIPO_IDENTIFICACION")
+      .drop("ID_PROUCTO")
+      .drop("ID_PRODUCTO")
+    dfClienteProducto.show(false)
+
+
+
 
 
 
