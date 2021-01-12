@@ -165,6 +165,16 @@ object DataIngest
       .drop("ID_PRODUCTO")
     dfClienteProducto.show(false)
 
+    /**
+     * Escribimos en formato parquet dependiendo de los esquemas origen
+     *
+     * */
+    dfClienteProducto.repartition(1).write
+      .option("delimiter", "|")
+      .mode("overwrite")
+      .partitionBy("SCHEMA")
+      .parquet("output/parquet/")
+println("OK --> Termino el proceso de escritura satisfactoriamente")
 
 
 
