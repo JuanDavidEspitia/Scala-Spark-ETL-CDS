@@ -127,6 +127,19 @@ object DataIngest
         col("ID_PROUCTO"))
     dfClientesHomologados.show()
 
+    /**
+     * Cruzamos el df de Clientes ya homologados con los productos, para conocer cual es el
+     * producto que le correspode a cada cliente.
+     *
+     * Realizamos los cruces mediante SQL Join
+     * */
+    // SQL Join
+    dfClientesHomologados.createOrReplaceTempView("CLIENTES")
+    dfProductos.createOrReplaceTempView("PRODUCTOS")
+    var dfClienteProducto = spark.sql("SELECT * FROM CLIENTES a INNER JOIN PRODUCTOS b ON a.ID_PROUCTO == b.ID_PRODUCTO")
+    println("Join de Clientes Homolagados con productos")
+    dfClienteProducto.show(false)
+
 
 
 

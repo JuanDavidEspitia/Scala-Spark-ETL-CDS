@@ -406,6 +406,7 @@ object DataframeUtils {
     }
     df
   }
+  /*
 
   /**
    *
@@ -441,6 +442,7 @@ object DataframeUtils {
     }
   }
 
+*/
 
   /**
    * Function responsible for obtaining information from the safety table

@@ -32,6 +32,7 @@ object MapTransformationExample {
     df2.printSchema()
     df2.show(false)
 
+    /*
     import spark.implicits._
     val util = new Util()
     val df3 = df2.map(row=>{
@@ -56,7 +57,7 @@ object MapTransformationExample {
     df4part.printSchema()
     df4part.show(false)
 
-
+*/
 
 
   }
